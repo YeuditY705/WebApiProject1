@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IceCream CRUD</title>
+    <link rel="stylesheet" href="./css/site.css" />
+</head>
+
+<body>
+    <div id="admin-tools"></div>
+
+    <h3>Add IceCream</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <input type="text" id="add-name" placeholder="New iceCream Name"><br>
+        <input type="text" id="add-description" placeholder="New iceCream Description"><br>
+        <input type="text" id="add-price" placeholder="New iceCream Price">
+
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editForm" style="display: none;">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="text" id="edit-code" hidden>
+            <input type="text" id="edit-name">
+            <input type="text" id="edit-description">
+            <input type="text" id="edit-price">
+
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+
+    <table>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="iceCreams"></tbody>
+    </table>
+
+    <button id="updateUserButton">Update User Details</button>
+
+    <div id="modalOverlay"></div>
+    <div id="userModal">
+        <h2>Update User Details</h2>
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="password">password:</label>
+            <input type="text" id="password" name="password"><br><br>
+            <button type="button" id="submitButton">Submit</button>
+            <button type="button" id="closeModalButton" onclick="closeUpdate()" >Close</button>
+        </form>
+    </div>
+    <button onclick="clearCookieAndRedirect()">Logout</button>
+
+    <script src="js/site.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", checkValidity);
+    </script>
+</body>
+
+</html>
